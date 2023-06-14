@@ -9,13 +9,17 @@ import Foundation
 import SwiftUI
 
 struct SearchField: View {
+    @EnvironmentObject var viewModel: HomeViewModel
+    
+//    init(viewModel: HomeViewModel) {
+//        self.viewModel = viewModel
+//    }
     
     let textFieldBackGroundColor = Color("textFieldColor")
-    var cartItemsCount = 12
     
     var body: some View {
         HStack (spacing: 16){
-            TextField(/*@START_MENU_TOKEN@*/"Search shoes..."/*@END_MENU_TOKEN@*/, text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
+            TextField("Search shoes...", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
                 .padding()
                 .background(textFieldBackGroundColor)
                 .cornerRadius(10)
@@ -27,8 +31,8 @@ struct SearchField: View {
                     .frame(width: 30, height: 30)
                     .padding(.trailing)
                
-                if cartItemsCount != 0 {
-                    Text("\(cartItemsCount)")
+                if viewModel.cartItemsCount != 0 {
+                    Text("\(viewModel.cartItemsCount)")
                         .font(.system(size: 6))
                         .fontWeight(.medium)
                         .foregroundColor(.white)

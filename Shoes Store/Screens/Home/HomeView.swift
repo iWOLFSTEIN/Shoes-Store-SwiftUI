@@ -8,7 +8,9 @@
 import Foundation
 import SwiftUI
 
-struct HomeScreen: View {
+struct HomeView: View {
+    
+    @StateObject private var viewModel = HomeViewModel()
     
     let columns: [GridItem] = [
         GridItem(.flexible()),
@@ -28,5 +30,6 @@ struct HomeScreen: View {
                 .padding()
             }
         }
+        .environmentObject(viewModel)
     }
 }

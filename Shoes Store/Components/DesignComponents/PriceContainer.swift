@@ -9,23 +9,32 @@ import Foundation
 import SwiftUI
 
 struct PriceContainer: View {
-    let upperHalfColor = Color("UpperHalf")
-    let lowerHalfColor = Color("LowerHalf")
-    
+    @EnvironmentObject var viewModel: HomeViewModel
     var imageName: String
     var imageUrl: String
+    
+    init(
+//        viewModel: HomeViewModel,
+        imageName: String, imageUrl: String) {
+//        self.viewModel = viewModel
+        self.imageName = imageName
+        self.imageUrl = imageUrl
+    }
+    
+    let upperHalfColor = Color("UpperHalf")
+    let lowerHalfColor = Color("LowerHalf")
     
     var body: some View {
         VStack (spacing: 0) {
             ZStack(alignment: .bottomLeading) {
                 AsyncImage(url: URL(string: imageUrl)) { image in
-                                image
-                                    .resizable()
-                            } placeholder: {
-                                ProgressView()
-                            }
-                    .background(upperHalfColor)
-                    .frame(height: 200)
+                    image
+                        .resizable()
+                } placeholder: {
+                    ProgressView()
+                }
+                .background(upperHalfColor)
+                .frame(height: 200)
                 
                 VStack(alignment: .leading) {
                     Text(imageName)
@@ -42,9 +51,7 @@ struct PriceContainer: View {
                 }
             }
             
-            Button(action: {
-                print("Add to cart button clicked!")
-            }) {
+            Button(action: { viewModel.addItemToCart() }) {
                 Text("Add to cart")
                     .font(.system(size: 15))
                     .fontWeight(.bold)
