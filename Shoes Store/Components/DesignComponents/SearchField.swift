@@ -34,11 +34,11 @@ struct SearchField: View {
                 if viewModel.cartItemsCount != 0 {
                     Text("\(viewModel.cartItemsCount)")
                         .font(.system(size: 6))
-                        .fontWeight(.medium)
+                        .fontWeight(.bold)
                         .foregroundColor(.white)
-                        .padding(EdgeInsets(top: 3, leading: 3, bottom: 3, trailing: 3))
+                        .frame(width: 14, height: 14)
                         .background(.red)
-                        .cornerRadius(10)
+                        .clipShape(Circle())
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 12))
                 }
             }

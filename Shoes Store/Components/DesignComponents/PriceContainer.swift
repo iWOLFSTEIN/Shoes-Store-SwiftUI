@@ -13,10 +13,7 @@ struct PriceContainer: View {
     var imageName: String
     var imageUrl: String
     
-    init(
-//        viewModel: HomeViewModel,
-        imageName: String, imageUrl: String) {
-//        self.viewModel = viewModel
+    init(imageName: String, imageUrl: String) {
         self.imageName = imageName
         self.imageUrl = imageUrl
     }
