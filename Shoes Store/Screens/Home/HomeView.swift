@@ -19,17 +19,20 @@ struct HomeView: View {
     
     var body: some View {
         VStack {
-            SearchField()
+            SearchField(viewModel: viewModel)
             ScrollView {
                 LazyVGrid (columns: columns, spacing: 16) {
                     ForEach(shoesImagesUrls, id: \.self) { url in
-                        PriceContainer(imageName: "Shoes",  imageUrl: url)
+                        PriceContainer(
+                            viewModel: viewModel,
+                            imageName: "Shoes",
+                            imageUrl: url
+                        )
                     }
 
                 }
                 .padding()
             }
         }
-        .environmentObject(viewModel)
     }
 }

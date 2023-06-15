@@ -9,14 +9,10 @@ import Foundation
 import SwiftUI
 
 struct PriceContainer: View {
-    @EnvironmentObject var viewModel: HomeViewModel
+    
+    @ObservedObject var viewModel: HomeViewModel
     var imageName: String
     var imageUrl: String
-    
-    init(imageName: String, imageUrl: String) {
-        self.imageName = imageName
-        self.imageUrl = imageUrl
-    }
     
     let upperHalfColor = Color("UpperHalf")
     let lowerHalfColor = Color("LowerHalf")
