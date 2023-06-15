@@ -66,7 +66,6 @@ struct CheckoutItem: View {
                 
                 Text("Remove")
                     .font(.system(size: 16))
-                    .fontWeight(.bold)
                     .foregroundColor(.blue)
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: 12.5, trailing: 0))
             }
